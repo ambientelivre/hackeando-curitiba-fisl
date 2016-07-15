@@ -78,6 +78,8 @@
   <order>
   <hop> <from>Text file input</from><to>Analise 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Analise 2</from><to>Split Fields</to><enabled>Y</enabled> </hop>
+  <hop> <from>Split Fields</from><to>Machine Learning</to><enabled>Y</enabled> </hop>
+  <hop> <from>Machine Learning</from><to>Arff Output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Text file input</name>
@@ -127,7 +129,7 @@
     </file>
     <filters>
       <filter>
-        <filter_string>Base64&#x3a; LQ&#x3d;&#x3d;</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>N</filter_is_positive>      </filter>
+        <filter_string>Base64&#x3a; LS0tLS0tLS0tLS0tLS0tLS0tLS0t</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>N</filter_is_positive>      </filter>
     </filters>
     <fields>
       <field>
@@ -458,8 +460,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>49</xloc>
-      <yloc>109</yloc>
+      <xloc>46</xloc>
+      <yloc>110</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -475,19 +477,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>TIPO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ORGAO</name>
-        <rename>ORGAO_SOLICITACAO</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>DATA</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>HORARIO</name>
+    <fields>      <field>        <name>ORGAO_SOLICITACAO</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -515,11 +505,15 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>Dia</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>628</xloc>
-      <yloc>39</yloc>
+      <xloc>588</xloc>
+      <yloc>237</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -643,8 +637,82 @@
         <trimtype>both</trimtype>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>300</xloc>
-      <yloc>27</yloc>
+      <xloc>306</xloc>
+      <yloc>26</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Arff Output</name>
+    <type>ArffOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<arff_file_name>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;database&#x2f;curitiba.arff</arff_file_name>
+<relation_name>curitiba</relation_name>
+<file_format>DOS</file_format>
+<encoding>UTF-8</encoding>
+<output_sparse_instances>N</output_sparse_instances>
+    <arff>
+        <arff_field><field_name>ORGAO_SOLICITACAO</field_name>
+<kettle_type>2</kettle_type>
+<arff_type>1</arff_type>
+<date_format/>
+<nominal_vals/>
+</arff_field>
+        <arff_field><field_name>ASSUNTO</field_name>
+<kettle_type>2</kettle_type>
+<arff_type>1</arff_type>
+<date_format/>
+<nominal_vals/>
+</arff_field>
+        <arff_field><field_name>SUBDIVISAO</field_name>
+<kettle_type>2</kettle_type>
+<arff_type>1</arff_type>
+<date_format/>
+<nominal_vals/>
+</arff_field>
+        <arff_field><field_name>BAIRRO_ASS</field_name>
+<kettle_type>2</kettle_type>
+<arff_type>1</arff_type>
+<date_format/>
+<nominal_vals/>
+</arff_field>
+        <arff_field><field_name>SEXO</field_name>
+<kettle_type>2</kettle_type>
+<arff_type>1</arff_type>
+<date_format/>
+<nominal_vals/>
+</arff_field>
+        <arff_field><field_name>BAIRRO_CIDADAO</field_name>
+<kettle_type>2</kettle_type>
+<arff_type>1</arff_type>
+<date_format/>
+<nominal_vals/>
+</arff_field>
+        <arff_field><field_name>ORGAO_RESP</field_name>
+<kettle_type>2</kettle_type>
+<arff_type>1</arff_type>
+<date_format/>
+<nominal_vals/>
+</arff_field>
+        <arff_field><field_name>Dia</field_name>
+<kettle_type>5</kettle_type>
+<arff_type>0</arff_type>
+<date_format/>
+<nominal_vals/>
+</arff_field>
+    </arff>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>761</xloc>
+      <yloc>238</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
