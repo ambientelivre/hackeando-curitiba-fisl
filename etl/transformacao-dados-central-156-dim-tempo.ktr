@@ -69,7 +69,7 @@
   <created_date>2016&#x2f;07&#x2f;16 09&#x3a;53&#x3a;03.358</created_date>
   <modified_user>-</modified_user>
   <modified_date>2016&#x2f;07&#x2f;16 09&#x3a;53&#x3a;03.358</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -107,48 +107,11 @@
   <hop> <from>Calculator</from><to>Value Mapper Mes</to><enabled>Y</enabled> </hop>
   <hop> <from>Value Mapper Mes</from><to>Value Mapper trimestre</to><enabled>Y</enabled> </hop>
   <hop> <from>Value Mapper trimestre</from><to>Value Mapper semestre</to><enabled>Y</enabled> </hop>
-  <hop> <from>Value Mapper semestre</from><to>id_dim_tempo</to><enabled>Y</enabled> </hop>
   <hop> <from>id_dim_tempo</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>dim_tempo</to><enabled>Y</enabled> </hop>
+  <hop> <from>Value Mapper semestre</from><to>Select values 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 2</from><to>id_dim_tempo</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Generate Rows</name>
-    <type>RowGenerator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>data_base</name>
-        <type>Date</type>
-        <format>dd&#x2f;MM&#x2f;yyyy</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>01&#x2f;01&#x2f;2015</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>732</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>128</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Add sequence</name>
     <type>Sequence</type>
@@ -254,6 +217,96 @@
     </step>
 
   <step>
+    <name>Generate Rows</name>
+    <type>RowGenerator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>data_base</name>
+        <type>Date</type>
+        <format>dd&#x2f;MM&#x2f;yyyy</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>01&#x2f;01&#x2f;2015</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <limit>732</limit>
+    <never_ending>N</never_ending>
+    <interval_in_ms>5000</interval_in_ms>
+    <row_time_field>now</row_time_field>
+    <last_time_field>FiveSecondsAgo</last_time_field>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>128</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>id_dim_tempo</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>ano</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>mes</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>mes_string</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>trimestre_string</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>semestre_string</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>data_dia</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>dia</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>816</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Value Mapper Mes</name>
     <type>ValueMapper</type>
     <description/>
@@ -321,78 +374,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>480</xloc>
       <yloc>160</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Value Mapper trimestre</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <field_to_use>mes</field_to_use>
-    <target_field>trimestre_string</target_field>
-    <non_match_default/>
-    <fields>
-      <field>
-        <source_value>1</source_value>
-        <target_value>1&#xba; Trimestre</target_value>
-      </field>
-      <field>
-        <source_value>2</source_value>
-        <target_value>1&#xba; Trimestre</target_value>
-      </field>
-      <field>
-        <source_value>3</source_value>
-        <target_value>1&#xba; Trimestre</target_value>
-      </field>
-      <field>
-        <source_value>4</source_value>
-        <target_value>2&#xba; Trimestre</target_value>
-      </field>
-      <field>
-        <source_value>5</source_value>
-        <target_value>2&#xba; Trimestre</target_value>
-      </field>
-      <field>
-        <source_value>6</source_value>
-        <target_value>2&#xba; Trimestre</target_value>
-      </field>
-      <field>
-        <source_value>7</source_value>
-        <target_value>3&#xba; Trimestre</target_value>
-      </field>
-      <field>
-        <source_value>8</source_value>
-        <target_value>3&#xba; Trimestre</target_value>
-      </field>
-      <field>
-        <source_value>9</source_value>
-        <target_value>3&#xba; Trimestre</target_value>
-      </field>
-      <field>
-        <source_value>10</source_value>
-        <target_value>4&#xba; Trimestre</target_value>
-      </field>
-      <field>
-        <source_value>11</source_value>
-        <target_value>4&#xba; Trimestre</target_value>
-      </field>
-      <field>
-        <source_value>12</source_value>
-        <target_value>4&#xba; Trimestre</target_value>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>480</xloc>
-      <yloc>256</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -470,8 +451,8 @@
     </step>
 
   <step>
-    <name>id_dim_tempo</name>
-    <type>Sequence</type>
+    <name>Value Mapper trimestre</name>
+    <type>ValueMapper</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -480,72 +461,63 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <valuename>id_dim_tempo</valuename>
-      <use_database>N</use_database>
-      <connection>fisl17</connection>
-      <schema/>
-      <seqname>SEQ_</seqname>
-      <use_counter>Y</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
+    <field_to_use>mes</field_to_use>
+    <target_field>trimestre_string</target_field>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>1</source_value>
+        <target_value>1&#xba; Trimestre</target_value>
+      </field>
+      <field>
+        <source_value>2</source_value>
+        <target_value>1&#xba; Trimestre</target_value>
+      </field>
+      <field>
+        <source_value>3</source_value>
+        <target_value>1&#xba; Trimestre</target_value>
+      </field>
+      <field>
+        <source_value>4</source_value>
+        <target_value>2&#xba; Trimestre</target_value>
+      </field>
+      <field>
+        <source_value>5</source_value>
+        <target_value>2&#xba; Trimestre</target_value>
+      </field>
+      <field>
+        <source_value>6</source_value>
+        <target_value>2&#xba; Trimestre</target_value>
+      </field>
+      <field>
+        <source_value>7</source_value>
+        <target_value>3&#xba; Trimestre</target_value>
+      </field>
+      <field>
+        <source_value>8</source_value>
+        <target_value>3&#xba; Trimestre</target_value>
+      </field>
+      <field>
+        <source_value>9</source_value>
+        <target_value>3&#xba; Trimestre</target_value>
+      </field>
+      <field>
+        <source_value>10</source_value>
+        <target_value>4&#xba; Trimestre</target_value>
+      </field>
+      <field>
+        <source_value>11</source_value>
+        <target_value>4&#xba; Trimestre</target_value>
+      </field>
+      <field>
+        <source_value>12</source_value>
+        <target_value>4&#xba; Trimestre</target_value>
+      </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>816</xloc>
+      <xloc>480</xloc>
       <yloc>256</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>id_dim_tempo</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ano</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>mes</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>mes_string</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>trimestre_string</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>semestre_string</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>data_dia</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>dia</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>816</xloc>
-      <yloc>160</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -584,6 +556,70 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>944</xloc>
       <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>id_dim_tempo</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>id_dim_tempo</valuename>
+      <use_database>N</use_database>
+      <connection>fisl17</connection>
+      <schema/>
+      <seqname>SEQ_</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>816</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>data_dia</name>
+        <rename>data_dia</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd&#x2f;MM&#x2f;yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>720</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

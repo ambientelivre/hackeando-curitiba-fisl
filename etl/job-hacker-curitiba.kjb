@@ -173,7 +173,7 @@
       <yloc>208</yloc>
       </entry>
     <entry>
-      <name>transformacao-dados-central-156-dim-tempo 2</name>
+      <name>transformacao-dados-central-156-fato</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -253,7 +253,7 @@
     </hop>
     <hop>
       <from>transformacao-dados-central-156-dim-tempo</from>
-      <to>transformacao-dados-central-156-dim-tempo 2</to>
+      <to>transformacao-dados-central-156-fato</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -279,7 +279,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>transformacao-dados-central-156-dim-tempo 2</from>
+      <from>transformacao-dados-central-156-fato</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
