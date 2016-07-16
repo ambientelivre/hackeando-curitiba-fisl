@@ -1,0 +1,60 @@
+<Schema name="Chamados 156">
+  <Cube name="Chamados 156" visible="true" cache="true" enabled="true">
+    <Table name="fato_156" alias="">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_dim_assunto" name="Assunto">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_dim_assunto">
+        <Table name="dim_assunto" alias="">
+        </Table>
+        <Level name="Assunto" visible="true" column="ASSUNTO_CALC" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_dim_orgao_resp" name="Orgao Responsavel">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_dim_orgao_resp">
+        <Table name="dim_orgao_resp" alias="">
+        </Table>
+        <Level name="Orgao Responsavel" visible="true" column="ORGAO_RESP_CALC" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_dim_orgao_solic" name="Orgao Solicitado">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_dim_orgao_solic">
+        <Table name="dim_orgao_solic" alias="">
+        </Table>
+        <Level name="Orgao Solicitado" visible="true" column="ORGAO_SOLICITADO_CALC" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_dim_sexo" name="Sexo">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_dim_sexo">
+        <Table name="dim_sexo" alias="">
+        </Table>
+        <Level name="Sexo" visible="true" column="SEXO_MAPPER" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_dim_tipo" name="Tipo">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_dim_tipo">
+        <Table name="dim_tipo" alias="">
+        </Table>
+        <Level name="Tipo" visible="true" column="TIPO_CALC" type="String" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="id_dim_tempo_156" name="Data da Ocorrencia">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_dim_tempo">
+        <Table name="dim_tempo" alias="">
+        </Table>
+        <Level name="Ano" visible="true" column="ano" type="Integer" uniqueMembers="false" levelType="TimeYears">
+        </Level>
+        <Level name="Mes" visible="true" column="mes" nameColumn="mes_string" type="Integer" uniqueMembers="false" levelType="TimeMonths">
+        </Level>
+        <Level name="Dia" visible="true" column="data_dia" type="Date" uniqueMembers="false" levelType="TimeDays">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade de Solicitacoes" column="DD_SOLICITACAO" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
