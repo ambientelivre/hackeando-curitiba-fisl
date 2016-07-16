@@ -18,7 +18,6 @@
 --
 -- Table structure for table `dim_assunto`
 --
-CREATE database fisl17;
 USE fisl17;
 DROP TABLE IF EXISTS `dim_assunto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -94,7 +93,7 @@ CREATE TABLE `dim_tempo` (
   `mes_string` varchar(30) DEFAULT NULL,
   `trimestre_string` varchar(30) DEFAULT NULL,
   `semestre_string` varchar(30) DEFAULT NULL,
-  `data_dia` datetime DEFAULT NULL,
+  `data_dia` varchar(12) DEFAULT NULL,
   `dia` int(11) DEFAULT NULL,
   KEY `idx_id_dim_tempo` (`id_dim_tempo`),
   KEY `idx_cod_data` (`data_dia`)

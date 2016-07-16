@@ -118,7 +118,7 @@
       <description/>
       <type>HTTP</type>
       <url>http&#x3a;&#x2f;&#x2f;multimidia.curitiba.pr.gov.br&#x2f;dadosabertos&#x2f;156&#x2f;156_-_Base_de_Dados.csv</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;database&#x2f;156_-_Base_de_Dados.csv</targetfilename>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;..&#x2f;database&#x2f;156_-_Base_de_Dados.csv</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>

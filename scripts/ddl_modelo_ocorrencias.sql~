@@ -18,7 +18,6 @@
 --
 -- Table structure for table `dim_assunto`
 --
-Create database fisl17;
 USE fisl17;
 DROP TABLE IF EXISTS `dim_assunto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
