@@ -76,11 +76,6 @@
   <notepads>
   </notepads>
   <order>
-  <hop> <from>Text file input</from><to>Analise 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Analise 2</from><to>Split Fields</to><enabled>Y</enabled> </hop>
-  <hop> <from>Machine Learning</from><to>Arff Output</to><enabled>Y</enabled> </hop>
-  <hop> <from>Split Fields</from><to>Split Fields 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Split Fields 2</from><to>Machine Learning</to><enabled>Y</enabled> </hop>
   <hop> <from>CSV Guarda Municipal</from><to>seleciona e renomeia campos</to><enabled>Y</enabled> </hop>
   <hop> <from>seleciona e renomeia campos</from><to>Split Hora</to><enabled>Y</enabled> </hop>
   <hop> <from>Split Hora</from><to>Mapeia Meses</to><enabled>Y</enabled> </hop>
@@ -147,7 +142,7 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>189</xloc>
       <yloc>396</yloc>
-      <draw>Y</draw>
+      <draw>N</draw>
       </GUI>
     </step>
 
@@ -221,540 +216,7 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>769</xloc>
       <yloc>399</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Machine Learning</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>ORGAO_SOLICITACAO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ASSUNTO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>SUBDIVISAO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BAIRRO_ASS</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>SEXO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ORGAO_RESP</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Dia</name>
-        <rename>DIA</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>hora</name>
-        <rename>HORA</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>648</xloc>
-      <yloc>402</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Split Fields</name>
-    <type>FieldSplitter</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-   <splitfield>DATA</splitfield>
-   <delimiter>&#x2f;</delimiter>
-   <enclosure/>
-    <fields>      <field>        <name>Dia</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>Integer</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
-      </field>      <field>        <name>Mes</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>Integer</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
-      </field>      <field>        <name>Ano</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>Integer</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>both</trimtype>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>327</xloc>
-      <yloc>395</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Split Fields 2</name>
-    <type>FieldSplitter</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-   <splitfield>HORARIO</splitfield>
-   <delimiter>&#x3a;</delimiter>
-   <enclosure/>
-    <fields>      <field>        <name>hora</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>Integer</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>454</xloc>
-      <yloc>395</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Text file input</name>
-    <type>TextFileInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field/>
-    <accept_stepname/>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar/>
-    <header>Y</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>2</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field/>
-    <format>mixed</format>
-    <encoding>ISO-8859-1</encoding>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;database&#x2f;156_-_Base_de_Dados.csv</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>CSV</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-      <filter>
-        <filter_string>Base64&#x3a; LS0tLS0tLS0tLS0tLS0tLS0tLS0t</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>N</filter_is_positive>      </filter>
-    </filters>
-    <fields>
-      <field>
-        <name>SOLICITACAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>21</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TIPO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>11</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ORGAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>34</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>DATA</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>30</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>HORARIO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>30</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ASSUNTO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>33</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>SUBDIVISAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>66</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>DESCRICAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>90</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>LOGRADOURO_ASS</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>35</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>BAIRRO_ASS</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>21</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>REGIONAL_ASS</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>25</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>MEIO_RESPOSTA</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>27</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>OBSERVACAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>128</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>SEXO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>9</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>BAIRRO_CIDADAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>28</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>REGIONAL_CIDADAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>33</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>DATA_NASC</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>30</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TIPO_CIDADAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>23</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ORGAO_RESP</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>32</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>RESPOSTA_FINAL</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>1001</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field/>
-    <file_error_message_field/>
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field/>
-    <error_fields_field/>
-    <error_text_field/>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>pt_BR</date_format_locale>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>78</xloc>
-      <yloc>407</yloc>
-      <draw>Y</draw>
+      <draw>N</draw>
       </GUI>
     </step>
 
@@ -1443,7 +905,7 @@
     </step>
 
   <step>
-    <name>seleciona e renomeia campos</name>
+    <name>Machine Learning</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1453,75 +915,44 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>ATENDIMENTO_BAIRRO_NOME</name>
-        <rename>BAIRRO</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>FLAG_FLAGRANTE</name>
-        <rename>FLAGRANTE</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>SUBCATEGORIA1_DESCRICAO</name>
-        <rename>CATEGORIA</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>OCORRENCIA_DIA_SEMANA</name>
-        <rename>DIA_SEMANA</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>OCORRENCIA_HORA</name>
+    <fields>      <field>        <name>ORGAO_SOLICITACAO</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>OCORRENCIA_MES</name>
-        <rename>MES</rename>
+      </field>      <field>        <name>ASSUNTO</name>
+        <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>SECRETARIA_SIGLA</name>
-        <rename>SECRETARIA</rename>
+      </field>      <field>        <name>SUBDIVISAO</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>BAIRRO_ASS</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>ORGAO_RESP</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>Dia</name>
+        <rename>DIA</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>hora</name>
+        <rename>HORA</rename>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>240</xloc>
-      <yloc>23</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Split Hora</name>
-    <type>FieldSplitter</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-   <splitfield>OCORRENCIA_HORA</splitfield>
-   <delimiter>&#x3a;</delimiter>
-   <enclosure/>
-    <fields>      <field>        <name>Hora</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>Integer</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>368</xloc>
-      <yloc>23</yloc>
-      <draw>Y</draw>
+      <xloc>648</xloc>
+      <yloc>402</yloc>
+      <draw>N</draw>
       </GUI>
     </step>
 
@@ -1713,6 +1144,570 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>560</xloc>
       <yloc>24</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Split Fields</name>
+    <type>FieldSplitter</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+   <splitfield>DATA</splitfield>
+   <delimiter>&#x2f;</delimiter>
+   <enclosure/>
+    <fields>      <field>        <name>Dia</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>Mes</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>Ano</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>both</trimtype>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>327</xloc>
+      <yloc>395</yloc>
+      <draw>N</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Split Fields 2</name>
+    <type>FieldSplitter</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+   <splitfield>HORARIO</splitfield>
+   <delimiter>&#x3a;</delimiter>
+   <enclosure/>
+    <fields>      <field>        <name>hora</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>454</xloc>
+      <yloc>395</yloc>
+      <draw>N</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Split Hora</name>
+    <type>FieldSplitter</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+   <splitfield>OCORRENCIA_HORA</splitfield>
+   <delimiter>&#x3a;</delimiter>
+   <enclosure/>
+    <fields>      <field>        <name>Hora</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>368</xloc>
+      <yloc>23</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Text file input</name>
+    <type>TextFileInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>&#x3b;</separator>
+    <enclosure>&#x22;</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>2</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>mixed</format>
+    <encoding>ISO-8859-1</encoding>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;database&#x2f;156_-_Base_de_Dados.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+      <filter>
+        <filter_string>Base64&#x3a; LS0tLS0tLS0tLS0tLS0tLS0tLS0t</filter_string>        <filter_position>-1</filter_position>        <filter_is_last_line>N</filter_is_last_line>        <filter_is_positive>N</filter_is_positive>      </filter>
+    </filters>
+    <fields>
+      <field>
+        <name>SOLICITACAO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>21</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>TIPO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>11</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>ORGAO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>34</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>DATA</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>30</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>HORARIO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>30</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>ASSUNTO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>33</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>SUBDIVISAO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>66</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>DESCRICAO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>90</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>LOGRADOURO_ASS</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>35</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>BAIRRO_ASS</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>21</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>REGIONAL_ASS</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>25</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>MEIO_RESPOSTA</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>27</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>OBSERVACAO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>128</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>SEXO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>BAIRRO_CIDADAO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>28</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>REGIONAL_CIDADAO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>33</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>DATA_NASC</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>30</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>TIPO_CIDADAO</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>23</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>ORGAO_RESP</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>32</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>RESPOSTA_FINAL</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>1001</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>pt_BR</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>78</xloc>
+      <yloc>407</yloc>
+      <draw>N</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>seleciona e renomeia campos</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>ATENDIMENTO_BAIRRO_NOME</name>
+        <rename>BAIRRO</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>FLAG_FLAGRANTE</name>
+        <rename>FLAGRANTE</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SUBCATEGORIA1_DESCRICAO</name>
+        <rename>CATEGORIA</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>OCORRENCIA_DIA_SEMANA</name>
+        <rename>DIA_SEMANA</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>OCORRENCIA_HORA</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>OCORRENCIA_MES</name>
+        <rename>MES</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SECRETARIA_SIGLA</name>
+        <rename>SECRETARIA</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>240</xloc>
+      <yloc>23</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

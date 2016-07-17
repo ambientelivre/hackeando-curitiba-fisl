@@ -104,8 +104,6 @@
   </connection>
   <order>
   <hop> <from>dados 156</from><to>Analise</to><enabled>Y</enabled> </hop>
-  <hop> <from>Split Fields</from><to>Machine Learning</to><enabled>N</enabled> </hop>
-  <hop> <from>Machine Learning</from><to>Arff Output</to><enabled>N</enabled> </hop>
   <hop> <from>Analise</from><to>Calculator</to><enabled>Y</enabled> </hop>
   <hop> <from>Calculator</from><to>Value Mapper</to><enabled>Y</enabled> </hop>
   <hop> <from>Value Mapper</from><to>String operations</to><enabled>Y</enabled> </hop>
@@ -121,7 +119,6 @@
   <hop> <from>Sort ORGAO SOLIC</from><to>Unique ORGAO SOLIC</to><enabled>Y</enabled> </hop>
   <hop> <from>ORGAO SOLIC</from><to>Sort ORGAO SOLIC</to><enabled>Y</enabled> </hop>
   <hop> <from>Metadata</from><to>ORGAO SOLIC</to><enabled>Y</enabled> </hop>
-  <hop> <from>Analise</from><to>Split Fields</to><enabled>N</enabled> </hop>
   <hop> <from>TIPO</from><to>Sort TIPO</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort TIPO</from><to>Unique TIPO</to><enabled>Y</enabled> </hop>
   <hop> <from>Metadata</from><to>TIPO</to><enabled>Y</enabled> </hop>
@@ -131,11 +128,11 @@
   <hop> <from>Unique SEXO</from><to>id_dim_sexo</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique ASSUNTO</from><to>id_dim_assunto</to><enabled>Y</enabled> </hop>
   <hop> <from>Unique ORGAO RESP</from><to>id_dim_orgao_resp</to><enabled>Y</enabled> </hop>
-  <hop> <from>id_dim_orgao_solic</from><to>Table output</to><enabled>Y</enabled> </hop>
-  <hop> <from>id_dim_sexo</from><to>Table output 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>id_dim_assunto</from><to>Table output 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>id_dim_orgao_resp</from><to>Table output 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>id_dim_tipo</from><to>Table output 5</to><enabled>Y</enabled> </hop>
+  <hop> <from>id_dim_orgao_solic</from><to>tab.Orgao_solicitado</to><enabled>Y</enabled> </hop>
+  <hop> <from>id_dim_sexo</from><to>tab.Sexo</to><enabled>Y</enabled> </hop>
+  <hop> <from>id_dim_assunto</from><to>tab.Assunto</to><enabled>Y</enabled> </hop>
+  <hop> <from>id_dim_orgao_resp</from><to>tab.orgao resp.</to><enabled>Y</enabled> </hop>
+  <hop> <from>id_dim_tipo</from><to>tab.tipo</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>ASSUNTO</name>
@@ -159,8 +156,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>896</xloc>
-      <yloc>240</yloc>
+      <xloc>277</xloc>
+      <yloc>185</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -223,82 +220,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>192</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Arff Output</name>
-    <type>ArffOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<arff_file_name>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;database&#x2f;curitiba.arff</arff_file_name>
-<relation_name>curitiba</relation_name>
-<file_format>Unix</file_format>
-<encoding>ISO-8859-1</encoding>
-<output_sparse_instances>N</output_sparse_instances>
-    <arff>
-        <arff_field><field_name>ORGAO_SOLICITACAO</field_name>
-<kettle_type>2</kettle_type>
-<arff_type>1</arff_type>
-<date_format/>
-<nominal_vals/>
-</arff_field>
-        <arff_field><field_name>ASSUNTO</field_name>
-<kettle_type>2</kettle_type>
-<arff_type>1</arff_type>
-<date_format/>
-<nominal_vals/>
-</arff_field>
-        <arff_field><field_name>SUBDIVISAO</field_name>
-<kettle_type>2</kettle_type>
-<arff_type>1</arff_type>
-<date_format/>
-<nominal_vals/>
-</arff_field>
-        <arff_field><field_name>BAIRRO_ASS</field_name>
-<kettle_type>2</kettle_type>
-<arff_type>1</arff_type>
-<date_format/>
-<nominal_vals/>
-</arff_field>
-        <arff_field><field_name>SEXO</field_name>
-<kettle_type>2</kettle_type>
-<arff_type>1</arff_type>
-<date_format/>
-<nominal_vals/>
-</arff_field>
-        <arff_field><field_name>BAIRRO_CIDADAO</field_name>
-<kettle_type>2</kettle_type>
-<arff_type>1</arff_type>
-<date_format/>
-<nominal_vals/>
-</arff_field>
-        <arff_field><field_name>ORGAO_RESP</field_name>
-<kettle_type>2</kettle_type>
-<arff_type>1</arff_type>
-<date_format/>
-<nominal_vals/>
-</arff_field>
-        <arff_field><field_name>Dia</field_name>
-<kettle_type>5</kettle_type>
-<arff_type>0</arff_type>
-<date_format/>
-<nominal_vals/>
-</arff_field>
-    </arff>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>496</xloc>
-      <yloc>112</yloc>
+      <xloc>48</xloc>
+      <yloc>115</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -414,60 +337,8 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>320</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Machine Learning</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>ORGAO_SOLICITACAO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ASSUNTO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>SUBDIVISAO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BAIRRO_ASS</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>SEXO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BAIRRO_CIDADAO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ORGAO_RESP</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Dia</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>336</xloc>
-      <yloc>112</yloc>
+      <xloc>48</xloc>
+      <yloc>195</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -562,8 +433,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>704</xloc>
-      <yloc>240</yloc>
+      <xloc>158</xloc>
+      <yloc>182</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -590,8 +461,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>896</xloc>
-      <yloc>320</yloc>
+      <xloc>277</xloc>
+      <yloc>265</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -618,8 +489,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>896</xloc>
-      <yloc>80</yloc>
+      <xloc>277</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -646,8 +517,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>896</xloc>
-      <yloc>160</yloc>
+      <xloc>277</xloc>
+      <yloc>105</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -680,8 +551,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1024</xloc>
-      <yloc>240</yloc>
+      <xloc>405</xloc>
+      <yloc>185</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -714,8 +585,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1024</xloc>
-      <yloc>320</yloc>
+      <xloc>405</xloc>
+      <yloc>265</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -748,8 +619,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1024</xloc>
-      <yloc>80</yloc>
+      <xloc>405</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -782,8 +653,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1024</xloc>
-      <yloc>160</yloc>
+      <xloc>405</xloc>
+      <yloc>105</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -816,69 +687,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1024</xloc>
-      <yloc>400</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Split Fields</name>
-    <type>FieldSplitter</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-   <splitfield>DATA</splitfield>
-   <delimiter>&#x2f;</delimiter>
-   <enclosure/>
-    <fields>      <field>        <name>Dia</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>Integer</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
-      </field>      <field>        <name>Mes</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>Integer</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
-      </field>      <field>        <name>Ano</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>Integer</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>both</trimtype>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>192</xloc>
-      <yloc>112</yloc>
+      <xloc>405</xloc>
+      <yloc>345</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -950,8 +760,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>576</xloc>
-      <yloc>240</yloc>
+      <xloc>163</xloc>
+      <yloc>275</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -978,14 +788,14 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>896</xloc>
-      <yloc>400</yloc>
+      <xloc>277</xloc>
+      <yloc>345</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output</name>
+    <name>tab.Orgao_solicitado</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1016,14 +826,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1450</xloc>
-      <yloc>80</yloc>
+      <xloc>831</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output 2</name>
+    <name>tab.Sexo</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1054,14 +864,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1450</xloc>
-      <yloc>160</yloc>
+      <xloc>832</xloc>
+      <yloc>107</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output 3</name>
+    <name>tab.Assunto</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1092,14 +902,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1450</xloc>
-      <yloc>240</yloc>
+      <xloc>831</xloc>
+      <yloc>185</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output 4</name>
+    <name>tab.orgao resp.</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1130,14 +940,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1450</xloc>
-      <yloc>320</yloc>
+      <xloc>831</xloc>
+      <yloc>265</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output 5</name>
+    <name>tab.tipo</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1168,8 +978,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1450</xloc>
-      <yloc>400</yloc>
+      <xloc>831</xloc>
+      <yloc>345</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1193,8 +1003,8 @@
         <case_insensitive>N</case_insensitive>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1152</xloc>
-      <yloc>240</yloc>
+      <xloc>533</xloc>
+      <yloc>185</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1218,8 +1028,8 @@
         <case_insensitive>N</case_insensitive>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1152</xloc>
-      <yloc>320</yloc>
+      <xloc>533</xloc>
+      <yloc>265</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1243,8 +1053,8 @@
         <case_insensitive>N</case_insensitive>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1152</xloc>
-      <yloc>80</yloc>
+      <xloc>533</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1268,8 +1078,8 @@
         <case_insensitive>N</case_insensitive>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1152</xloc>
-      <yloc>160</yloc>
+      <xloc>533</xloc>
+      <yloc>105</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1293,8 +1103,8 @@
         <case_insensitive>N</case_insensitive>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1152</xloc>
-      <yloc>400</yloc>
+      <xloc>533</xloc>
+      <yloc>345</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1329,8 +1139,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>448</xloc>
-      <yloc>240</yloc>
+      <xloc>48</xloc>
+      <yloc>273</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1714,8 +1524,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>32</xloc>
-      <yloc>240</yloc>
+      <xloc>48</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1743,8 +1553,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1296</xloc>
-      <yloc>240</yloc>
+      <xloc>677</xloc>
+      <yloc>185</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1772,8 +1582,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1296</xloc>
-      <yloc>320</yloc>
+      <xloc>677</xloc>
+      <yloc>265</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1801,8 +1611,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1296</xloc>
-      <yloc>80</yloc>
+      <xloc>677</xloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1830,8 +1640,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1296</xloc>
-      <yloc>160</yloc>
+      <xloc>677</xloc>
+      <yloc>105</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1859,8 +1669,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1296</xloc>
-      <yloc>400</yloc>
+      <xloc>677</xloc>
+      <yloc>345</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
